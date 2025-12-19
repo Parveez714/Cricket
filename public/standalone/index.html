@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏏 Hand Cricket</title>
+  <meta name="description" content="Play Hand Cricket against the computer! Match hands = OUT. Score as many runs as you can!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <!-- Background decoration -->
+    <div class="bg-decoration"></div>
+    
+    <div class="content">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="title">🏏 Hand Cricket</h1>
+        <p class="subtitle">Match the computer's hand = OUT!</p>
+      </header>
+
+      <!-- Score Display -->
+      <div class="score-section">
+        <div class="score-card" id="scoreCard">
+          <p class="score-label">Your Score</p>
+          <div class="score-value-container">
+            <span class="score-value" id="scoreValue">0</span>
+            <span class="out-badge" id="outBadge">OUT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Display -->
+      <div class="result-card" id="resultCard">
+        <p class="result-placeholder" id="resultPlaceholder">Choose your hand to play! 🏏</p>
+        <div class="result-content" id="resultContent">
+          <div class="hand-display">
+            <p class="hand-label">You</p>
+            <div class="hand-icon" id="playerHandIcon">✊</div>
+            <p class="hand-value" id="playerHandValue">0</p>
+          </div>
+          <div class="vs-text">VS</div>
+          <div class="hand-display">
+            <p class="hand-label">Computer</p>
+            <div class="hand-icon" id="computerHandIcon">✊</div>
+            <p class="hand-value" id="computerHandValue">0</p>
+          </div>
+        </div>
+        <div class="result-badge" id="resultBadge">
+          <span id="resultText">+0 runs!</span>
+        </div>
+      </div>
+
+      <!-- Hand Buttons -->
+      <div class="hands-section">
+        <p class="hands-label">Pick your hand</p>
+        <div class="hands-grid">
+          <button class="hand-button" data-value="1" onclick="playHand(1)">
+            <span class="hand-emoji">☝️</span>
+            <span class="hand-number">1</span>
+          </button>
+          <button class="hand-button" data-value="2" onclick="playHand(2)">
+            <span class="hand-emoji">✌️</span>
+            <span class="hand-number">2</span>
+          </button>
+          <button class="hand-button" data-value="3" onclick="playHand(3)">
+            <span class="hand-emoji">🤟</span>
+            <span class="hand-number">3</span>
+          </button>
+          <button class="hand-button" data-value="4" onclick="playHand(4)">
+            <span class="hand-emoji">🖐️</span>
+            <span class="hand-number">4</span>
+          </button>
+          <button class="hand-button" data-value="5" onclick="playHand(5)">
+            <span class="hand-emoji">🤙</span>
+            <span class="hand-number">5</span>
+          </button>
+          <button class="hand-button" data-value="6" onclick="playHand(6)">
+            <span class="hand-emoji">👊</span>
+            <span class="hand-number">6</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Reset Button -->
+      <div class="reset-section">
+        <button class="reset-button" onclick="resetGame()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+          Reset Game
+        </button>
+      </div>
+
+      <!-- History -->
+      <div class="history-card" id="historyCard">
+        <h3 class="history-title">📜 Recent Plays</h3>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </div>
+
+    <!-- Wicket Modal -->
+    <div class="modal" id="wicketModal">
+      <div class="modal-content">
+        <div class="wicket-scene">
+          <div class="stump s1"></div>
+          <div class="stump s2"></div>
+          <div class="stump s3"></div>
+          <div class="bail bail1"></div>
+          <div class="bail bail2"></div>
+          <div class="ball"></div>
+        </div>
+        <div class="modal-text">
+          <h2 class="modal-title">OUT! 🏏</h2>
+          <p class="modal-subtitle">Final Score</p>
+          <p class="modal-score" id="modalScore">0</p>
+          <p class="modal-runs">runs</p>
+        </div>
+        <button class="play-again-button" onclick="resetGame()">Play Again 🎮</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
